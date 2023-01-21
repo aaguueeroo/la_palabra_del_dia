@@ -11,11 +11,11 @@ class Palabra extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        LetraRecuadro(index: 0, intento: intento),
-        LetraRecuadro(index: 1, intento: intento),
-        LetraRecuadro(index: 2, intento: intento),
-        LetraRecuadro(index: 3, intento: intento),
-        LetraRecuadro(index: 4, intento: intento),
+        LetraRecuadro(index: 0, attempt: intento),
+        LetraRecuadro(index: 1, attempt: intento),
+        LetraRecuadro(index: 2, attempt: intento),
+        LetraRecuadro(index: 3, attempt: intento),
+        LetraRecuadro(index: 4, attempt: intento),
       ],
     );
   }

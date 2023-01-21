@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:la_palabra_del_dia/controller/input_provider.dart';
+import 'package:provider/provider.dart';
 
 class TeclaEnviar extends StatelessWidget {
   const TeclaEnviar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    InputProvider controller = Provider.of<InputProvider>(context);
     double width = MediaQuery.of(context).size.width;
     double teclaWidth = width / 7;
 
@@ -16,7 +19,7 @@ class TeclaEnviar extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
       ),
       child: TextButton(
-        onPressed: () {},
+        onPressed: controller.sendCurrentAttempt,
         child: const Text(
           'Enviar',
           style: TextStyle(color: Colors.white),

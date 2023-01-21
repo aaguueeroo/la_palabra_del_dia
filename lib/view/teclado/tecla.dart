@@ -10,8 +10,6 @@ class Tecla extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     InputProvider controller = Provider.of<InputProvider>(context);
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
     Color color = Colors.grey;
 
     return Expanded(
@@ -23,7 +21,7 @@ class Tecla extends StatelessWidget {
           borderRadius: BorderRadius.circular(5),
         ),
         child: TextButton(
-          onPressed: () => controller.addLetterToInput(letra),
+          onPressed: () => controller.addLetterToCurrentAttempt(letra),
           child: Text(
             letra,
             style: const TextStyle(

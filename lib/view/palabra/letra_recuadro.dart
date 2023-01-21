@@ -4,9 +4,9 @@ import 'package:provider/provider.dart';
 
 class LetraRecuadro extends StatelessWidget {
   final int index;
-  final int intento;
+  final int attempt;
 
-  LetraRecuadro({Key? key, required this.index, required this.intento})
+  LetraRecuadro({Key? key, required this.index, required this.attempt})
       : super(key: key);
 
   @override
@@ -19,7 +19,7 @@ class LetraRecuadro extends StatelessWidget {
     double teclaWidth = width / 5.5;
     double teclaHeight = height / 14;
 
-    String? letra = controller.getLetterInIndex(index);
+    String? letra = controller.getLetterInIndex(index: index, attempt: attempt);
 
     return Container(
       alignment: Alignment.center,
@@ -27,7 +27,7 @@ class LetraRecuadro extends StatelessWidget {
       width: teclaWidth,
       margin: const EdgeInsets.symmetric(vertical: 2),
       decoration: BoxDecoration(
-        color: Colors.yellow.shade100,
+        color: Colors.transparent,
         border: Border.all(
           color: Colors.black87,
           width: 1,

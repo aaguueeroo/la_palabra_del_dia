@@ -19,7 +19,7 @@ class TeclaBorrar extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
       ),
       child: IconButton(
-        onPressed: controller.deleteLetterFromInput,
+        onPressed: controller.deleteLetterFromCurrentAttempt,
         icon: const Icon(
           Icons.backspace,
           color: Colors.white,
