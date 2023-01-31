@@ -114,7 +114,8 @@ class GameController with ChangeNotifier {
 
       Letter currentLetter = _attemptedWords[attempt][index];
       int appearancesInWord = 0;
-
+      //TODO: fix. counts double when the letter is repeated. make a set
+      //to count only once
       for (int i = 0; i < wordToGuess!.length; i++) {
         if (wordToGuess!.elementAt(i) == currentLetter.character) {
           appearancesInWord++;
@@ -125,15 +126,15 @@ class GameController with ChangeNotifier {
 
       if (currentLetter.isInRightPosition()) return Colors.green;
 
-      bool isYellow(int notInPlaceAppearances) {
+      bool isYellow(int totalAppearances) {
         int appearancesBeforeCurrent = 0;
-        for (int i = 0; i < currentLetter.position; i++) {
+        for (int i = 0; i < currentLetter.position - 1; i++) {
           if (_attemptedWords[attempt][i].character ==
               currentLetter.character) {
             appearancesBeforeCurrent++;
           }
         }
-        if (notInPlaceAppearances > appearancesBeforeCurrent) return true;
+        if (totalAppearances > appearancesBeforeCurrent) return true;
         return false;
       }
 
