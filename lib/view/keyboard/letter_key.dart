@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../controller/input_provider.dart';
+import '../../controller/game_controller.dart';
 
-class Tecla extends StatelessWidget {
-  const Tecla({Key? key, required this.letra}) : super(key: key);
-  final String letra;
+class LetterKey extends StatelessWidget {
+  const LetterKey({Key? key, required this.letter}) : super(key: key);
+  final String letter;
 
   @override
   Widget build(BuildContext context) {
-    InputProvider controller = Provider.of<InputProvider>(context);
+    GameController controller = GameController();
     Color color = Colors.grey;
 
     return Expanded(
@@ -21,9 +21,9 @@ class Tecla extends StatelessWidget {
           borderRadius: BorderRadius.circular(5),
         ),
         child: TextButton(
-          onPressed: () => controller.addLetterToCurrentAttempt(letra),
+          onPressed: () => controller.inputLetter(letter),
           child: Text(
-            letra,
+            letter,
             style: const TextStyle(
               color: Colors.white,
               fontSize: 22,

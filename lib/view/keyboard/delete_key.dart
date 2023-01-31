@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:la_palabra_del_dia/controller/input_provider.dart';
-import 'package:provider/provider.dart';
+import 'package:la_palabra_del_dia/controller/game_controller.dart';
 
-class TeclaBorrar extends StatelessWidget {
-  const TeclaBorrar({Key? key}) : super(key: key);
+class DeleteKey extends StatelessWidget {
+  const DeleteKey({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    InputProvider controller = Provider.of<InputProvider>(context);
+    GameController controller = GameController();
     double width = MediaQuery.of(context).size.width;
     double teclaWidth = width / 8;
 
@@ -19,7 +18,7 @@ class TeclaBorrar extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
       ),
       child: IconButton(
-        onPressed: controller.deleteLetterFromCurrentAttempt,
+        onPressed: controller.deleteLetter,
         icon: const Icon(
           Icons.backspace,
           color: Colors.white,

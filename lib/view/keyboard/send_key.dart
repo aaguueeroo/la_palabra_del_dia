@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:la_palabra_del_dia/controller/input_provider.dart';
+import 'package:la_palabra_del_dia/controller/game_controller.dart';
 import 'package:provider/provider.dart';
 
-class TeclaEnviar extends StatelessWidget {
-  const TeclaEnviar({Key? key}) : super(key: key);
+class SendKey extends StatelessWidget {
+  const SendKey({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    InputProvider controller = Provider.of<InputProvider>(context);
+    GameController controller = GameController();
     double width = MediaQuery.of(context).size.width;
     double teclaWidth = width / 7;
 
@@ -19,7 +19,7 @@ class TeclaEnviar extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
       ),
       child: TextButton(
-        onPressed: controller.sendCurrentAttempt,
+        onPressed: controller.sendAttempt,
         child: const Text(
           'Enviar',
           style: TextStyle(color: Colors.white),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:la_palabra_del_dia/controller/input_provider.dart';
+import 'package:la_palabra_del_dia/controller/game_controller.dart';
 import 'package:la_palabra_del_dia/guess_word_view.dart';
 import 'package:provider/provider.dart';
 
@@ -10,7 +10,7 @@ void main() {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => InputProvider()),
+        ChangeNotifierProvider(create: (_) => GameController()),
       ],
       child: const MyApp(),
     ),
