@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 import '../../controller/game_controller.dart';
 
@@ -11,6 +10,7 @@ class LetterKey extends StatelessWidget {
   Widget build(BuildContext context) {
     GameController controller = GameController();
     Color color = Colors.grey;
+    //TODO: change color of key when send: dark, green or yellow
 
     return Expanded(
       child: Container(

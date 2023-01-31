@@ -53,13 +53,14 @@ class GameController with ChangeNotifier {
   void sendAttempt() {
     // if the word is complete
     if (_attemptedWords[currentAttempt].length == wordToGuess!.length) {
-      if (isWordCorrect()) {
+      if (WordIsCorrect()) {
+        _currentAttempt++;
         scaffoldMessengerKey.currentState!
             .showSnackBar(const SnackBar(content: Text('Enhorabuena!')));
       } else {
         //show wrong and right letters
-        addAttemptedWord();
       }
+      addAttemptedWord();
     }
 
     //if there are letters missing
@@ -74,13 +75,12 @@ class GameController with ChangeNotifier {
     _attemptedWords.add([]);
     _currentAttempt++;
     if (_currentAttempt > maxAttempts) {
-      _currentAttempt = maxAttempts;
       endGame();
     }
     notifyListeners();
   }
 
-  bool isWordCorrect() {
+  bool WordIsCorrect() {
     for (int i = 0; i < wordToGuess!.length; i++) {
       if (_attemptedWords[_currentAttempt][i].character !=
           wordToGuess!.elementAt(i)) {
@@ -107,20 +107,18 @@ class GameController with ChangeNotifier {
   Color getLetterColor({required int index, required int attempt}) {
     try {
       // Before sending the word
-      if (attempt == _currentAttempt && !isWordCorrect()) {
+      if (attempt == _currentAttempt && !WordIsCorrect()) {
         return Colors.transparent;
       }
-      // // When the word is correct
-      // if (attempt == _currentAttempt && isWordCorrect()) {
-      //   return Colors.green;
-      // }
+      if (_currentAttempt == attempt) return Colors.transparent;
 
       Letter currentLetter = _attemptedWords[attempt][index];
       int appearancesInWord = 0;
 
       for (int i = 0; i < wordToGuess!.length; i++) {
-        if (wordToGuess!.elementAt(i) == currentLetter.character)
+        if (wordToGuess!.elementAt(i) == currentLetter.character) {
           appearancesInWord++;
+        }
       }
 
       if (appearancesInWord == 0) return Colors.transparent;
@@ -140,8 +138,6 @@ class GameController with ChangeNotifier {
       }
 
       return isYellow(appearancesInWord) ? Colors.yellow : Colors.transparent;
-
-      return Colors.transparent;
     } catch (e) {
       return Colors.transparent;
     }
