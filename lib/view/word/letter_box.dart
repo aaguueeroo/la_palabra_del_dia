@@ -23,7 +23,7 @@ class LetterBox extends StatelessWidget {
 
     Letter? letter =
         controller.getLetterInIndex(index: index, attempt: attempt);
-    Color color = controller.getLetterColor(index: index, attempt: attempt);
+    Color color = controller.getBoxLetterColor(index: index, attempt: attempt);
     // Color color = Colors.transparent;
 
     return Container(

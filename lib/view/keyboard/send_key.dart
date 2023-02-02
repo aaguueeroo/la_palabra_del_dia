@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:la_palabra_del_dia/controller/game_controller.dart';
-import 'package:provider/provider.dart';
 
 class SendKey extends StatelessWidget {
   const SendKey({Key? key}) : super(key: key);
@@ -19,7 +18,7 @@ class SendKey extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
       ),
       child: TextButton(
-        onPressed: controller.sendAttempt,
+        onPressed: () => controller.sendAttempt(context),
         child: const Text(
           'Enviar',
           style: TextStyle(color: Colors.white),
